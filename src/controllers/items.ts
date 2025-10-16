@@ -32,4 +32,13 @@ export const updateItem = (id: number, updatedItem: Partial<Item>): Item | undef
   return item;
 };
 
+export const deleteItem = (id: number): boolean => {
+  const index = Items.findIndex((i) => i.id === id);
+  if (index === -1) {
+    return false;
+  }
+  Items.splice(index, 1);
+  return true;
+};
+
 
