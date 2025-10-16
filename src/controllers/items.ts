@@ -13,9 +13,13 @@ export const getItemById = (id:number): Item | undefined => {
     return Item
 }
 
-export const addItem =(name:string, status:string, quantity:number, price:number): Item =>{
-    const newItem: Item ={id:currentId++, name,status, quantity, price }
+export const addItem =(name:string, isPurchased:boolean, quantity:number, price:number): Item =>{
+    const newItem: Item ={id:currentId++, name,isPurchased, quantity, price }
     Items.push(newItem)
 
     return newItem
 }
+
+// export const updateItem = (name:string, isPurchased:string, quantity:number, price:number): Item =>{
+    
+// }

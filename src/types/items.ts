@@ -1,7 +1,7 @@
 export interface Item{
     id: number,
     name: string,
-    status: string,
+    isPurchased: boolean,
     quantity: number,
     price:number
 }

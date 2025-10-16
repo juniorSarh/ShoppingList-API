@@ -52,15 +52,15 @@ export const itemsRoute = async (req: IncomingMessage, res: ServerResponse)=>{
                 
                 
                 try {
-                    const {name, status, quantity,price} = JSON.parse(body)
+                    const {name, isPurchased, quantity,price} = JSON.parse(body)
                     if(!name || typeof name !== "string"){
                         res.writeHead(400, {"content-type":"application/json"});
                         res.end(JSON.stringify({error: "item name is required"}))
                     }
 
-                     if(!status || typeof status !== "string"){
+                     if(typeof isPurchased ==="undefined" || typeof isPurchased !== "boolean"){
                         res.writeHead(400, {"content-type":"application/json"});
-                        res.end(JSON.stringify({error: "status of the item  is required"}))
+                        res.end(JSON.stringify({error: "isPurchased of the item  is required"}))
                     }
 
                      if(!quantity || typeof quantity !== "number"){
@@ -71,7 +71,7 @@ export const itemsRoute = async (req: IncomingMessage, res: ServerResponse)=>{
                         res.writeHead(400, {"content-type":"application/json"});
                         res.end(JSON.stringify({error: "price of item is required"}))
                     }
-                    const newItem = addItem(name,status, quantity, price)
+                    const newItem = addItem(name,isPurchased, quantity, price)
                 res.writeHead(201, {"content-type": "application/json"});
                 res.end(JSON.stringify(newItem));
                 } catch (error) {
