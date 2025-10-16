@@ -20,6 +20,16 @@ export const addItem =(name:string, isPurchased:boolean, quantity:number, price:
     return newItem
 }
 
-// export const updateItem = (name:string, isPurchased:string, quantity:number, price:number): Item =>{
-    
-// }
+export const updateItem = (id: number, updatedItem: Partial<Item>): Item | undefined => {
+  const item = Items.find((i) => i.id === id);
+  if (!item) {
+    return undefined;
+  }
+  if (typeof updatedItem.name === "string") item.name = updatedItem.name;
+  if (typeof updatedItem.quantity === "number") item.quantity = updatedItem.quantity;
+  if (typeof updatedItem.price === "number") item.price = updatedItem.price;
+  if (typeof updatedItem.isPurchased === "boolean") item.isPurchased = updatedItem.isPurchased;
+  return item;
+};
+
+
