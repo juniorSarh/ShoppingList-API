@@ -1,5 +1,5 @@
 import { IncomingMessage, ServerResponse } from "http";
-import { getItems, getItemById, addItem, updateItem } from "../controllers/items";
+import { getItems, getItemById, addItem, updateItem, deleteItem } from "../controllers/items";
 import { error } from "console";
 
 export const itemsRoute = async (req: IncomingMessage, res: ServerResponse)=>{
@@ -137,6 +137,22 @@ export const itemsRoute = async (req: IncomingMessage, res: ServerResponse)=>{
           res.end(JSON.stringify({ message: "Invalid JSON payload" }));
         }
       });
+      return;
+    }
+
+    if (req.method === "DELETE") {
+      if (!id || isNaN(id)) {
+        res.writeHead(400, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ message: "Id is required" }));
+        return;
+      }
+      const removed = deleteItem(id);
+      if (!removed) {
+        res.writeHead(404, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ message: "Item Not found" }));
+        return;
+      }
+      res.writeHead(204).end();
       return;
     }
         res.writeHead(405, {"content-type":"application/json"});

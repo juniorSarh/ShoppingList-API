@@ -1,3 +1,6 @@
+
+<img src="https://socialify.git.ci/juniorSarh/ShoppingList-API/image?language=1&owner=1&name=1&stargazers=1&theme=Light" alt="ShoppingList-API" width="640" height="320" />
+
 # ShoppingList-API
 
 Simple Node + TypeScript HTTP API for managing a shopping list.
@@ -12,10 +15,10 @@ Simple Node + TypeScript HTTP API for managing a shopping list.
 - TypeScript
 - Postman or curl (for testing API requests)
 
-### Installation
+### Clone and Installation
 
 ```bash
-# Clone the repository
+# Clone the repository and use any terminal 
 git clone https://github.com/juniorSarh/shopping-list-api.git
 cd shopping-list-api
 

@@ -11,8 +11,8 @@ const requestListerner = (req: IncomingMessage, res:ServerResponse) =>{
     }
     else{
 
-        res.writeHead(200,{"content-type": "application/json"});
-        res.end(JSON.stringify({error:"item not found"}));
+        res.writeHead(404,{"content-type": "application/json"});
+        res.end(JSON.stringify({message:"404 item not found"}));
     }
 }
 
