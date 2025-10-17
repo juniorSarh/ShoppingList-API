@@ -11,9 +11,9 @@ Simple Node + TypeScript HTTP API for managing a shopping list.
 
 ### Prerequisites
 
-- Node.js (v18+ recommended)
+- Node.js (v22.17+ recommended)
 - TypeScript
-- Postman or curl (for testing API requests)
+- Postman, Thunderclient or curl (for testing API requests)
 
 ### Clone and Installation
 
@@ -53,6 +53,7 @@ The server runs at http://localhost:3000.
 - Get all items — `GET /items`
 - Get item by ID — `GET /items/:id`
 - Update an item — `PUT /items/:id`
+- Delete an item - `DELETE /items/:id`
 
 Item shape (`src/types/items.ts`):
 
