@@ -1,7 +1,6 @@
 import http, {IncomingMessage, ServerResponse} from 'http'
-import { server } from 'typescript';
 import { itemsRoute } from './routes/items';
-import { error } from 'console';
+
 
 const PORT = 3000;
 
